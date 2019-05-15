@@ -88,7 +88,7 @@ class App extends Component {
     return (
 
       <div className="App">
-        <h1 className={classes.join(' ')}>Hi you</h1>
+        <h1 className={classes.join(' ')}>Hi</h1>
         <button style={styles} onClick={this.togglePersonsHandler}>Switch the Name</button>
         {persons}
       </div>
