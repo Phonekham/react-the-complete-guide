@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './App.css';
+import classes from './App.css';
 // import Radium, { StyleRoot } from 'radium';
 import Person from './Person/Person'
 
@@ -58,6 +58,7 @@ class App extends Component {
       }
     };
     let persons = null;
+    let btnClass = '';
     if (this.state.showPersons) {
       persons = (
         <div>
@@ -73,23 +74,24 @@ class App extends Component {
         </div>
       );
       styles.backgroundColor = 'red';
+      btnClass = classes.Red;
       // styles[':hover'] = {
       //   backgroundColor: 'salmon',
       //   color: 'black'
       // }
     }
-    const classes = [];
+    const assignedclasses = [];
     if (this.state.persons.length <= 2) {
-      classes.push('red')
+      assignedclasses.push('red')
     }
     if (this.state.persons.length <= 1) {
-      classes.push('bold')
+      assignedclasses.push('bold')
     }
     return (
 
       <div className="App">
-        <h1 className={classes.join(' ')}>Hi</h1>
-        <button style={styles} onClick={this.togglePersonsHandler}>Switch the Name</button>
+        <h1 className={assignedclasses.join(' ')}>Hi</h1>
+        <button className={btnClass} style={styles} onClick={this.togglePersonsHandler}>Switch the Name</button>
         {persons}
       </div>
 
