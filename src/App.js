@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import classes from './App.css';
 // import Radium, { StyleRoot } from 'radium';
 import Person from './Person/Person'
+import ErrorBoundary from './ErrorBoundary/ErrorBoundary';
 
 class App extends Component {
   state = {
@@ -88,13 +89,13 @@ class App extends Component {
       assignedclasses.push('bold')
     }
     return (
-
-      <div className="App">
-        <h1 className={assignedclasses.join(' ')}>Hi</h1>
-        <button className={btnClass} style={styles} onClick={this.togglePersonsHandler}>Switch the Name</button>
-        {persons}
-      </div>
-
+      <ErrorBoundary>
+        <div className="App">
+          <h1 className={assignedclasses.join(' ')}>Hi</h1>
+          <button className={btnClass} style={styles} onClick={this.togglePersonsHandler}>Switch the Name</button>
+          {persons}
+        </div>
+      </ErrorBoundary>
     );
   }
 }
